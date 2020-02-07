@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
-import TextInput from '../components/common/Input'
-
+import React, { useState } from 'react'
+import { StyleSheet, View, Text } from 'react-native'
 import useDebounce from '../hooks/useDebounce'
-import useGithubSearch from '../hooks/useGithub'
+import useGithubSearch from '../hooks/useGithubSearch'
+
+import Loading from '../components/Loading'
+import Error from '../components/Error'
+import TextInput from '../components/common/Input'
 
 export default function FeedScreen() {
   const [searchQuery, setSearchQuery] = useState('')
   const [language, setLanguage] = useState('javascript')
-  const [sort, setSort] = useState('stars')
+  const [sort] = useState('stars')
   const [order, setOrder] = useState('desc')
 
   const debouncedSearchTerm = useDebounce(searchQuery, 500)
 
-  const { data, error, loading } = useGithubSearch({
+  const { data, loading, error } = useGithubSearch({
     searchQuery: debouncedSearchTerm,
     language,
     sort,
@@ -21,51 +23,50 @@ export default function FeedScreen() {
   })
 
   if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text>Loading...</Text>
-      </View>
-    )
+    return <Loading size={'large'} />
   }
 
   if (error) {
-    return (
-      <View style={styles.sectionContainer}>
-        <Text>Error :( {`${error}`}</Text>
-      </View>
-    )
+    return <Error error={error} />
   }
 
-  return (
-    <View style={styles.sectionContainer}>
-      <View>
-        <Text>Feed Screen</Text>
-        <TextInput
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          onChangeText={(value) => setSearchQuery(value)}
-        />
+  if (data) {
+    return (
+      <View style={styles.sectionContainer}>
+        <View style={styles.feedHeader}>
+          <View style={styles.searchInput}>
+            <TextInput
+              value={searchQuery}
+              onChangeText={(value) => setSearchQuery(value)}
+            />
+            <Text>search term: "{`${searchQuery}`}"</Text>
+          </View>
+        </View>
+        <View style={styles.feedBody}>
+          {!data || (!!data.items && data.items.length === 0)
+            ? (
+              <Text>No items matching your search</Text>
+            ) : (!!data && data.items.map((repo) => (
+              <Card key={repo.id} repo={repo} />
+            )))}
+        </View>
       </View>
-      {!data || (!!data && data.items.length === 0) ? (
-        <Text>No items matching your search</Text>
-      ) : (
-          <>
-            {!!data && data.items.map((repo) => (
-              <Text key={repo.id}>{repo.name}</Text>
-            ))}
-          </>
-        )}
-    </View>
-  )
+    )
+  } else {
+    return null
+  }
 }
 
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
+    padding: 10,
   },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+  feedHeader: {},
+  searchInput: {
+    margin: 10,
+  },
+  feedBody: {
+    padding: 10,
+  },
 })

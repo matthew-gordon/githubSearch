@@ -4,7 +4,6 @@ export default function useGithubSearch({ searchQuery, language, sort, order, op
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-
   const baseUrl = 'https://api.github.com/search/repositories'
   const url = `${baseUrl}?q=${searchQuery}+language:${language}&sort=${sort}&order=${order}`
 
@@ -21,7 +20,7 @@ export default function useGithubSearch({ searchQuery, language, sort, order, op
       }
     }
     fetchData()
-  }, [searchQuery])
+  }, [searchQuery, language, sort, order])
 
   return { data, loading, error }
 }

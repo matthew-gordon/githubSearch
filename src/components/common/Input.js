@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, TextInput as RNTextInput } from 'react-native'
 
-export default function TextInput({ setSearchQuery, searchQuery, ...props }) {
+export default function TextInput({ ...props }) {
   return (
     <RNTextInput
       {...props}
