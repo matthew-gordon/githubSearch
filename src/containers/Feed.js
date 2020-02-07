@@ -13,10 +13,10 @@ export default function FeedScreen() {
   const [sort] = useState('stars')
   const [order, setOrder] = useState('desc')
 
-  const debouncedSearchTerm = useDebounce(searchQuery, 500)
+  const { debouncedValue } = useDebounce(searchQuery, 500)
 
   const { data, loading, error } = useGithubSearch({
-    searchQuery: debouncedSearchTerm,
+    searchQuery: debouncedValue,
     language,
     sort,
     order,
@@ -29,6 +29,8 @@ export default function FeedScreen() {
   if (error) {
     return <Error error={error} />
   }
+
+  console.log(data)
 
   if (data) {
     return (
@@ -47,7 +49,7 @@ export default function FeedScreen() {
             ? (
               <Text>No items matching your search</Text>
             ) : (!!data && data.items.map((repo) => (
-              <Card key={repo.id} repo={repo} />
+              <Text key={repo.id}>{repo.name}</Text>
             )))}
         </View>
       </View>
