@@ -17,7 +17,6 @@ function FilterProvider({ children }) {
         setOrder,
         order
       }}
-    // {...props}
     >
       {children}
     </FilterContext.Provider>
