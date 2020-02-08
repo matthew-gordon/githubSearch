@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text, FlatList } from 'react-native'
+import { useFilters } from '../context/filter-context'
 import useDebounce from '../hooks/useDebounce'
 import useGithubSearch from '../hooks/useGithubSearch'
-
 import Loading from '../components/Loading'
 import Error from '../components/Error'
 import TextInput from '../components/common/Input'
@@ -10,13 +10,11 @@ import Repo from '../components/Repo/Repo'
 
 export default function FeedScreen() {
   const [searchQuery, setSearchQuery] = useState('')
-  const [language, setLanguage] = useState('javascript')
-  const [sort] = useState('stars')
-  const [order, setOrder] = useState('desc')
-
+  const { language, sort, order } = useFilters()
   const { debouncedValue } = useDebounce(searchQuery, 500)
 
   const { data, loading, error } = useGithubSearch({
+    resource: 'repositories',
     searchQuery: debouncedValue,
     language,
     sort,
@@ -63,8 +61,11 @@ export default function FeedScreen() {
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
+    backgroundColor: '#fff',
   },
-  feedHeader: {},
+  feedHeader: {
+    backgroundColor: '#fff',
+  },
   searchInput: {
     margin: 10,
   },

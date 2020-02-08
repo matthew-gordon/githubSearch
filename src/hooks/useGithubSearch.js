@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
-export default function useGithubSearch({ searchQuery, language, sort, order, options = {} }) {
+export default function useGithubSearch({ resource, searchQuery, language, sort, order, options = {} }) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const baseUrl = 'https://api.github.com/search/repositories'
+  const baseUrl = `https://api.github.com/search/${resource}`
   const url = `${baseUrl}?q=${searchQuery}+language:${language}&sort=${sort}&order=${order}`
 
   async function fetchData() {

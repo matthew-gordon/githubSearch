@@ -18,7 +18,7 @@ export default function FeedNavigator() {
         component={FeedScreen}
         options={{
           title: 'feed',
-          headerRight: (props) => <Text onPress={() => navigate('Details')}>filters</Text>
+          headerRight: (props) => <Text style={{ padding: 10 }} onPress={() => navigate('FilterModal')}>filters</Text>
         }}
       />
       <Stack.Screen
