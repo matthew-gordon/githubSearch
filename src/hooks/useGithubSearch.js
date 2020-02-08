@@ -10,10 +10,8 @@ export default function useGithubSearch({ resource, searchQuery, language, sort,
   async function fetchData() {
     try {
       setLoading(true)
-
       const res = await fetch(url, options)
       const json = await res.json()
-
       setData(json)
       setLoading(false)
     } catch (e) {

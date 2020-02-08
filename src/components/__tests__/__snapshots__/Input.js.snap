@@ -24,6 +24,7 @@ exports[`Input renders without crashing 1`] = `
       style={
         Array [
           Object {
+            "backgroundColor": "#fff",
             "borderRadius": 10,
             "borderWidth": 1,
             "height": 42,
