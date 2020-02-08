@@ -24,7 +24,9 @@ export default function FeedNavigator() {
       <Stack.Screen
         name="Details"
         component={DetailScreen}
-        options={{ title: 'detail' }}
+        options={({ route }) => ({
+          title: route.params.repo.name,
+        })}
       />
     </Stack.Navigator>
   )

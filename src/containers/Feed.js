@@ -63,7 +63,6 @@ export default function FeedScreen() {
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
-    padding: 10,
   },
   feedHeader: {},
   searchInput: {
@@ -71,6 +70,5 @@ const styles = StyleSheet.create({
   },
   feedBody: {
     flex: 1,
-    padding: 10,
   },
 })
