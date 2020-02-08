@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, FlatList } from 'react-native'
 import useDebounce from '../hooks/useDebounce'
 import useGithubSearch from '../hooks/useGithubSearch'
 
 import Loading from '../components/Loading'
 import Error from '../components/Error'
 import TextInput from '../components/common/Input'
+import Repo from '../components/Repo/Repo'
 
 export default function FeedScreen() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -22,15 +23,9 @@ export default function FeedScreen() {
     order,
   })
 
-  if (loading) {
-    return <Loading size={'large'} />
-  }
-
   if (error) {
     return <Error error={error} />
   }
-
-  console.log(data)
 
   if (data) {
     return (
@@ -41,16 +36,22 @@ export default function FeedScreen() {
               value={searchQuery}
               onChangeText={(value) => setSearchQuery(value)}
             />
-            <Text>search term: "{`${searchQuery}`}"</Text>
           </View>
         </View>
         <View style={styles.feedBody}>
-          {!data || (!!data.items && data.items.length === 0)
-            ? (
-              <Text>No items matching your search</Text>
-            ) : (!!data && data.items.map((repo) => (
-              <Text key={repo.id}>{repo.name}</Text>
-            )))}
+          {loading ? (
+            <Loading size={'large'} />
+          ) : (
+              <FlatList
+                style={styles.list}
+                keyExtractor={(item) => item.node_id}
+                data={data.items}
+                renderItem={({ item, index }) => (
+                  <Repo repo={item} />
+                )}
+                ListEmptyComponent={<Text>No repos</Text>}
+              />
+            )}
         </View>
       </View>
     )
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   feedBody: {
+    flex: 1,
     padding: 10,
   },
 })

@@ -28,4 +28,4 @@ export default function FeedNavigator() {
       />
     </Stack.Navigator>
   )
-} 
+}

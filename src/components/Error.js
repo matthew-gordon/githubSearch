@@ -1,20 +1,16 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { StyleSheet, View, Text } from 'react-native'
 
 export default function Error({ error }) {
-  const { navigate } = useNavigation()
-
   return (
-    <View style={[styles.loadingContainer, props.style]}>
+    <View testId="error" style={styles.errorContainer}>
       <Text>Oh no! Something went wrong.</Text>
-      <Button title="return home" onPress={() => navigate('Home')} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  loadingContainer: {
+  errorContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

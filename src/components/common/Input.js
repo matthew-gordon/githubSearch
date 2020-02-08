@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { StyleSheet, TextInput as RNTextInput } from 'react-native'
 
 export default function TextInput({ ...props }) {
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   input: {
     height: 42,
     width: '100%',
+    backgroundColor: '#fff',
     borderWidth: 1,
     borderRadius: 10,
     paddingLeft: 10,

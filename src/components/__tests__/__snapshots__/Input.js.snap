@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders without crashing 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "borderRadius": 10,
+            "borderWidth": 1,
+            "height": 42,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "width": "100%",
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+</View>
+`;
