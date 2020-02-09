@@ -27,9 +27,11 @@ export default function FilterTab({ navigation }) {
             onPress={() => {
               if (filterActive(languages, language)) {
                 const data = languages.filter(lang => lang !== language.toLowerCase())
+
                 setLanguages(data)
               } else {
                 const data = [...languages, language.toLowerCase()]
+
                 setLanguages(data)
               }
               navigation.navigate('Feed')

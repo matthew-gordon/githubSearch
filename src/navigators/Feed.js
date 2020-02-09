@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import FeedScreen from '../containers/Feed'
 import DetailScreen from '../containers/Detail'
@@ -18,7 +19,13 @@ export default function FeedNavigator() {
         component={FeedScreen}
         options={{
           title: 'feed',
-          headerRight: (props) => <Text style={{ padding: 10 }} onPress={() => navigate('FilterModal')}>filters</Text>
+          headerRight: props => (
+            <TouchableOpacity onPress={() => navigate('FilterModal')}>
+              <View style={styles.headerFilter}>
+                <Icon size={25} name="ios-list" {...props} />
+              </View>
+            </TouchableOpacity>
+          ),
         }}
       />
       <Stack.Screen
@@ -31,3 +38,9 @@ export default function FeedNavigator() {
     </Stack.Navigator>
   )
 }
+
+const styles = StyleSheet.create({
+  headerFilter: {
+    padding: 10,
+  },
+})
