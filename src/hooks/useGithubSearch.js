@@ -1,27 +1,5 @@
 import { useState, useEffect } from 'react'
-
-export function buildUrl({ baseUrl, resource, searchQuery, languages, sort, order }) {
-  let selectedLanguages = ''
-  let query = ''
-
-  if (!searchQuery) {
-    query = 'github'
-  } else {
-    query = searchQuery
-  }
-
-  if (languages.length > 1) {
-    selectedLanguages = languages
-      .reduce((prev, curr) => {
-        return [...prev, `language:${curr}`]
-      }, '')
-      .join('+')
-  } else {
-    selectedLanguages = `language:${languages[0]}`
-  }
-
-  return `${baseUrl}/${resource}?q=${query}+${selectedLanguages}&sort=${sort}&order=${order}`
-}
+import { buildUrl } from '../utils'
 
 export default function useGithubSearch({
   resource,
@@ -37,14 +15,7 @@ export default function useGithubSearch({
   const baseUrl = 'https://api.github.com/search'
 
   async function fetchData() {
-    const url = buildUrl({
-      baseUrl,
-      resource,
-      searchQuery,
-      languages,
-      sort,
-      order,
-    })
+    const url = buildUrl({ baseUrl, resource, searchQuery, languages, sort, order })
 
     try {
       setLoading(true)

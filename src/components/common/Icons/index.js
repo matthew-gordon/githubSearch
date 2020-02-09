@@ -1,0 +1,7 @@
+export { default as JavaScriptIcon } from './JavaScriptIcon'
+export { default as JavaIcon } from './JavaIcon'
+export { default as PythonIcon } from './PythonIcon'
+export { default as TypeScriptIcon } from './TypeScriptIcon'
+export { default as StarIcon } from './StarIcon'
+export { default as ForkIcon } from './ForkIcon'
+export { default as RubyIcon } from './RubyIcon'

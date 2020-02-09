@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export function JavaScriptIcon(props) {
+export default function JavaScriptIcon(props) {
   const { active, muted, themeColors } = props
   const activeColor = 'gold'
   const inactiveColor = '#000'
