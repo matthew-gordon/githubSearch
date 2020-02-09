@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native'
 import { renderLanguageIcon } from '../../utils'
 import { ForkIcon } from '../common/Icons/ForkIcon'
 import { StarIcon } from '../common/Icons/StarIcon'
-
 import Card from '../common/Card'
 
 export default function Repo({ repo }) {

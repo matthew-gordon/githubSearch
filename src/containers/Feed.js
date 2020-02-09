@@ -11,13 +11,13 @@ import SortOptions from '../components/Feed/SortOptions'
 
 export default function FeedScreen() {
   const [searchQuery, setSearchQuery] = useState('')
-  const { language, sort, order } = useFilters()
+  const { languages, sort, order } = useFilters()
   const { debouncedValue } = useDebounce(searchQuery, 500)
 
   const { data, loading, error } = useGithubSearch({
     resource: 'repositories',
     searchQuery: debouncedValue,
-    language,
+    languages,
     sort,
     order,
   })
