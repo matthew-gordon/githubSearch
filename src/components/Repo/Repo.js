@@ -21,7 +21,7 @@ export default function Repo({ repo }) {
           </View>
           <View style={styles.iconContainer}>
             <ForkIcon size={20} style={styles.icon} />
-            <Text> {repo.forks_count}</Text>
+            <Text>{repo.forks_count}</Text>
           </View>
           <View style={styles.iconContainer}>
             {repo.language
