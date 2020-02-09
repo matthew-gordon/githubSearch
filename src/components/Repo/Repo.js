@@ -12,9 +12,7 @@ export default function Repo({ repo }) {
 
   return (
     <TouchableOpacity onPress={() => navigate('Details', { repo })}>
-      <Card
-        style={styles.card}
-      >
+      <Card style={styles.card}>
         <Text style={styles.repoName}>{repo.full_name}</Text>
         <View style={styles.repoMeta}>
           <View style={styles.iconContainer}>
@@ -26,7 +24,9 @@ export default function Repo({ repo }) {
             <Text> {repo.forks_count}</Text>
           </View>
           <View style={styles.iconContainer}>
-            {renderLanguageIcon({ language: repo.language.toLowerCase() })}
+            {repo.language
+              ? renderLanguageIcon({ size: 25, language: repo.language.toLowerCase() })
+              : null}
           </View>
         </View>
       </Card>
@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
   },
   iconContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   icon: {
     margin: 10,

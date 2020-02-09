@@ -6,33 +6,23 @@ import { RubyIcon } from './components/common/Icons/RubyIcon'
 import { PythonIcon } from './components/common/Icons/PythonIcon'
 import { TypeScriptIcon } from './components/common/Icons/TypeScriptIcon'
 
-export function renderLanguageIcon({ language }) {
+export function renderLanguageIcon({ size, language }) {
   switch (language) {
     case 'javascript':
-      return (
-        <JavaScriptIcon size={25} style={styles.icon} />
-      )
+      return <JavaScriptIcon size={size} style={styles.icon} />
     case 'python':
-      return (
-        <PythonIcon size={25} style={styles.icon} />
-      )
+      return <PythonIcon size={size} style={styles.icon} />
     case 'java':
-      return (
-        <JavaIcon size={25} style={styles.icon} />
-      )
+      return <JavaIcon size={size} style={styles.icon} />
     case 'ruby':
-      return (
-        <RubyIcon size={25} style={styles.icon} />
-      )
+      return <RubyIcon size={size} style={styles.icon} />
     case 'typescript':
-      return (
-        <TypeScriptIcon size={25} style={styles.icon} />
-      )
+      return <TypeScriptIcon size={size} style={styles.icon} />
   }
 }
 
 const styles = StyleSheet.create({
   icon: {
-    margin: 5,
+    margin: 10,
   },
 })

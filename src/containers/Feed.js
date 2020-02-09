@@ -7,6 +7,7 @@ import Loading from '../components/Loading'
 import Error from '../components/Error'
 import TextInput from '../components/common/Input'
 import Repo from '../components/Repo/Repo'
+import SortOptions from '../components/Feed/SortOptions'
 
 export default function FeedScreen() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -30,26 +31,24 @@ export default function FeedScreen() {
       <View style={styles.sectionContainer}>
         <View style={styles.feedHeader}>
           <View style={styles.searchInput}>
-            <TextInput
-              value={searchQuery}
-              onChangeText={(value) => setSearchQuery(value)}
-            />
+            <TextInput value={searchQuery} onChangeText={value => setSearchQuery(value)} />
+          </View>
+          <View style={styles.sortOptions}>
+            <SortOptions />
           </View>
         </View>
         <View style={styles.feedBody}>
           {loading ? (
             <Loading size={'large'} />
           ) : (
-              <FlatList
-                style={styles.list}
-                keyExtractor={(item) => item.node_id}
-                data={data.items}
-                renderItem={({ item, index }) => (
-                  <Repo repo={item} />
-                )}
-                ListEmptyComponent={<Text>No repos</Text>}
-              />
-            )}
+            <FlatList
+              style={styles.list}
+              keyExtractor={item => item.node_id}
+              data={data.items}
+              renderItem={({ item }) => <Repo repo={item} />}
+              ListEmptyComponent={<Text>No repos</Text>}
+            />
+          )}
         </View>
       </View>
     )
@@ -68,6 +67,11 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     margin: 10,
+  },
+  sortOptions: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   feedBody: {
     flex: 1,
