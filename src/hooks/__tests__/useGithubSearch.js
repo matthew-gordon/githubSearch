@@ -53,7 +53,7 @@ afterEach(() => {
   global.fetch.mockRestore()
 })
 
-test('returns list of repositories', async () => {
+xit('returns list of repositories', async () => {
   mockFetch.mockReturnValueOnce({
     ok: true,
     json: () => data,

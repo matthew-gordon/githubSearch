@@ -1,6 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`utils renerLanguageIcon renders an icon with correct properties 1`] = `
+exports[`utils renerLanguageIcon renders java icon 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 25,
+          },
+          Object {
+            "margin": 10,
+          },
+          Object {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      ﬜
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`utils renerLanguageIcon renders javascript icon 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -39,6 +83,94 @@ exports[`utils renerLanguageIcon renders an icon with correct properties 1`] = `
       }
     >
       
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`utils renerLanguageIcon renders python icon 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 25,
+          },
+          Object {
+            "margin": 10,
+          },
+          Object {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`utils renerLanguageIcon renders typescript icon 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 25,
+          },
+          Object {
+            "margin": 10,
+          },
+          Object {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
     </Text>
   </View>
 </View>

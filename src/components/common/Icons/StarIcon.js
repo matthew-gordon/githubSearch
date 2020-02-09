@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-export default function StarIcon(props) {
+export function StarIcon(props) {
   const { active, muted, themeColors } = props
   const activeColor = 'gold'
   const inactiveColor = '#000'

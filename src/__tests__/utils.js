@@ -3,8 +3,26 @@ import { renderLanguageIcon, buildUrl } from '../utils'
 
 describe('utils', () => {
   describe('renerLanguageIcon', () => {
-    it('renders an icon with correct properties', () => {
+    it('renders javascript icon', () => {
       const { baseElement } = render(renderLanguageIcon({ size: 25, language: 'javascript' }))
+
+      expect(baseElement).toMatchSnapshot()
+    })
+
+    it('renders python icon', () => {
+      const { baseElement } = render(renderLanguageIcon({ size: 25, language: 'python' }))
+
+      expect(baseElement).toMatchSnapshot()
+    })
+
+    it('renders java icon', () => {
+      const { baseElement } = render(renderLanguageIcon({ size: 25, language: 'java' }))
+
+      expect(baseElement).toMatchSnapshot()
+    })
+
+    it('renders typescript icon', () => {
+      const { baseElement } = render(renderLanguageIcon({ size: 25, language: 'typescript' }))
 
       expect(baseElement).toMatchSnapshot()
     })

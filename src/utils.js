@@ -1,12 +1,10 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import {
-  JavaScriptIcon,
-  PythonIcon,
-  JavaIcon,
-  RubyIcon,
-  TypeScriptIcon,
-} from './components/common/Icons'
+import { JavaScriptIcon } from './components/common/Icons/JavaScriptIcon'
+import { JavaIcon } from './components/common/Icons/JavaIcon'
+import { RubyIcon } from './components/common/Icons/RubyIcon'
+import { PythonIcon } from './components/common/Icons/PythonIcon'
+import { TypeScriptIcon } from './components/common/Icons/TypeScriptIcon'
 
 export function buildUrl({ baseUrl, resource, searchQuery, languages, sort, order }) {
   let selectedLanguages = ''
