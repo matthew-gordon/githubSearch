@@ -20,7 +20,7 @@ function MainTabScreen() {
 
 function RootStackScreen() {
   return (
-    <RootStack.Navigator mode="modal">
+    <RootStack.Navigator transparentCard mode="modal">
       <RootStack.Screen
         name="Main"
         component={MainTabScreen}
