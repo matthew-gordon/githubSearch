@@ -17,11 +17,9 @@ export default function DetailScreen() {
       <Text style={styles.repoOwner}>{params.repo.owner.login}</Text>
       <View style={styles.repoLink}>
         <LinkIcon size={25} />
-        <Button
-          title={params.repo.full_name}
-          onPress={() => Linking.openURL(params.repo.html_url)}
-          style={styles.repoLink}
-        />
+        <Text onPress={() => Linking.openURL(params.repo.html_url)} style={styles.repoLink}>
+          {params.repo.full_name}
+        </Text>
       </View>
       <View style={styles.metaBar}>
         <View style={styles.iconContainer}>
@@ -84,13 +82,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    margin: 10,
   },
   repoFullName: {
     margin: 10,
     padding: 5,
     color: '#fff',
     fontSize: 15,
+    backgroundColor: 'transparent',
   },
   repoDescription: {
     fontSize: 15,

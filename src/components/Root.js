@@ -40,7 +40,7 @@ export default RootStackScreen
 
 const styles = StyleSheet.create({
   icon: {
-    height: 40,
+    height: 50,
     padding: 10,
     margin: 10,
   },
