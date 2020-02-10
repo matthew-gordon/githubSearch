@@ -36,7 +36,7 @@ src/components         <- dumb components
 src/context            <- project providers
 src/hooks              <- custom hooks
 src/containers         <- smart components (i.e. data fetchers)
-stc/utils              <- helper functions
+src/utils              <- helper functions
 src/navigators         <- react-navigation navigators
 ```
 
