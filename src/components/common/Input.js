@@ -2,13 +2,7 @@ import React from 'react'
 import { StyleSheet, TextInput as RNTextInput } from 'react-native'
 
 export default function TextInput({ ...props }) {
-  return (
-    <RNTextInput
-      {...props}
-      style={[styles.input]}
-      placeholder={props.name}
-    />
-  )
+  return <RNTextInput {...props} style={[styles.input]} />
 }
 
 const styles = StyleSheet.create({

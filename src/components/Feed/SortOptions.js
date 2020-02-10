@@ -31,9 +31,11 @@ export default function SortOptions() {
 const styles = StyleSheet.create({
   sort: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
+    borderRadius: 10,
   },
   sortLabel: {
     padding: 10,

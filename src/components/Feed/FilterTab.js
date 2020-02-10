@@ -14,7 +14,7 @@ export default function FilterTab({ navigation }) {
   return (
     <>
       <View style={styles.sectionHeader}>
-        <Text style={styles.languageLabel}>Language</Text>
+        <Text style={styles.languageLabel}>language</Text>
       </View>
       <View style={styles.section}>
         {languagesOptions.map(language => (

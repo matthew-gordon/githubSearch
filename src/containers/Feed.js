@@ -31,7 +31,11 @@ export default function FeedScreen() {
       <View style={styles.sectionContainer}>
         <View style={styles.feedHeader}>
           <View style={styles.searchInput}>
-            <TextInput value={searchQuery} onChangeText={value => setSearchQuery(value)} />
+            <TextInput
+              placeholder={'search for repositories...'}
+              value={searchQuery}
+              onChangeText={value => setSearchQuery(value)}
+            />
           </View>
           <View style={styles.sortOptions}>
             <SortOptions />
@@ -46,7 +50,11 @@ export default function FeedScreen() {
               keyExtractor={item => item.node_id}
               data={data.items}
               renderItem={({ item }) => <Repo repo={item} />}
-              ListEmptyComponent={<Text>No repos</Text>}
+              ListEmptyComponent={
+                <View style={styles.emptyComponent}>
+                  <Text>No repos matching that term.</Text>
+                </View>
+              }
             />
           )}
         </View>
@@ -75,5 +83,8 @@ const styles = StyleSheet.create({
   },
   feedBody: {
     flex: 1,
+  },
+  emptyComponent: {
+    padding: 10,
   },
 })
