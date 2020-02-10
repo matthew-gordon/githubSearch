@@ -1,20 +1,28 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, Button, ScrollView, Linking } from 'react-native'
 import { useRoute } from '@react-navigation/native'
 import { StarIcon } from '../components/common/Icons/StarIcon'
 import { ForkIcon } from '../components/common/Icons/ForkIcon'
+import { LinkIcon } from '../components/common/Icons/LinkIcon'
 import { renderLanguageIcon } from '../utils'
 
 export default function DetailScreen() {
   const { params } = useRoute()
 
   return (
-    <View style={styles.sectionContainer}>
+    <ScrollView contentContainerStyle={styles.sectionContainer}>
       <View style={styles.avatarContainer}>
         <Image style={styles.avatar} source={{ uri: params.repo.owner.avatar_url }} />
       </View>
       <Text style={styles.repoOwner}>{params.repo.owner.login}</Text>
-      <Text style={styles.repoFullName}>{params.repo.full_name}</Text>
+      <View style={styles.repoLink}>
+        <LinkIcon size={25} />
+        <Button
+          title={params.repo.full_name}
+          onPress={() => Linking.openURL(params.repo.html_url)}
+          style={styles.repoLink}
+        />
+      </View>
       <View style={styles.metaBar}>
         <View style={styles.iconContainer}>
           <StarIcon size={45} style={styles.icon} />
@@ -38,7 +46,7 @@ export default function DetailScreen() {
       <View style={styles.repoMeta}>
         <Text style={styles.repoDescription}>{params.repo.description}</Text>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -71,10 +79,18 @@ const styles = StyleSheet.create({
     fontSize: 22,
     margin: 10,
   },
-  repoFullName: {
-    fontSize: 15,
+  repoLink: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
-    margin: 5,
+    margin: 10,
+  },
+  repoFullName: {
+    margin: 10,
+    padding: 5,
+    color: '#fff',
+    fontSize: 15,
   },
   repoDescription: {
     fontSize: 15,

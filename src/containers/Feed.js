@@ -72,6 +72,9 @@ const styles = StyleSheet.create({
   },
   feedHeader: {
     backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(0, 0, 0, 0.4)',
+    padding: 10,
   },
   searchInput: {
     margin: 10,

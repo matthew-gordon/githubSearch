@@ -5,6 +5,7 @@ export default function Error({ error }) {
   return (
     <View testId="error" style={styles.errorContainer}>
       <Text>Oh no! Something went wrong.</Text>
+      <Text>{error.message}</Text>
     </View>
   )
 }
