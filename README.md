@@ -47,6 +47,6 @@ src/navigators         <- react-navigation navigators
 ​
 This project uses [Prettier](http://prettier.io/) to format code. Please make sure you have the plugin installed for your editor and configured it to format on save. There is a git commit hook to format code as well.
 
-# Considertaions
+# Considerations
 
 - React navigation 5 test config for integration with @testing-library/react-native is in the process of updating with major release. Current config breaks test suite, will update when issues resolved to properly test navigators.
