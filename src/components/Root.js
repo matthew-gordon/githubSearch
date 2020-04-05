@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
+import Analytics from 'appcenter-analytics'
 import FeedNavigator from '../navigators/Feed'
 import ModalScreen from '../components/Modal'
 import { HomeIcon } from '../components/common/Icons/HomeIcon'
@@ -20,7 +21,7 @@ function MainTabScreen() {
         name="Home"
         component={FeedNavigator}
         options={{
-          tabBarIcon: props => <HomeIcon size={30} style={styles.icon} />,
+          tabBarIcon: (props) => <HomeIcon size={30} style={styles.icon} />,
         }}
       />
     </MainTab.Navigator>
@@ -28,6 +29,14 @@ function MainTabScreen() {
 }
 
 function RootStackScreen() {
+  useEffect(() => {
+    async function enableAnalytics() {
+      await Analytics.setEnabled(true)
+    }
+
+    enableAnalytics()
+  }, [])
+
   return (
     <RootStack.Navigator transparentCard mode="modal">
       <RootStack.Screen name="Main" component={MainTabScreen} options={{ headerShown: false }} />
