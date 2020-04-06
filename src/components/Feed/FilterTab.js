@@ -14,10 +14,10 @@ export default function FilterTab({ navigation }) {
   return (
     <>
       <View style={styles.sectionHeader}>
-        <Text style={styles.languageLabel}>language</Text>
+        <Text style={styles.languageLabel}>language!!</Text>
       </View>
       <View style={styles.section}>
-        {languagesOptions.map(language => (
+        {languagesOptions.map((language) => (
           <TouchableOpacity
             key={language}
             style={[
@@ -26,7 +26,7 @@ export default function FilterTab({ navigation }) {
             ]}
             onPress={() => {
               if (filterActive(languages, language)) {
-                const data = languages.filter(lang => lang !== language.toLowerCase())
+                const data = languages.filter((lang) => lang !== language.toLowerCase())
 
                 setLanguages(data)
               } else {
