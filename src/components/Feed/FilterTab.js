@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   languageLabel: {
-    fontSize: 22,
+    fontSize: 10,
     padding: 10,
   },
   section: {

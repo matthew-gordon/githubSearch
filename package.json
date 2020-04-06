@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "otaUpdate": "appcenter codepush release-react -a redemption5525/githubSearch -d Production",
+    "otaUpdate": "appcenter codepush release-react -a redemption5525/githubSearch -d Staging",
     "fix-pods": "cd ios && rm -R -f Pods && rm Podfile.lock && pod deintegrate && pod install && cd ..",
     "danceYourselfClean": "rm -rf $TMPDIR/react- && rm -rf $TMPDIR/haste- && rm -rf $TMPDIR/metro-* && watchman watch-del-all"
   },
